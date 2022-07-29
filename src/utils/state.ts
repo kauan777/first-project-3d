@@ -1,4 +1,4 @@
-import { createRef, RefObject } from "react";
+import { createRef } from "react";
 
 interface stateProps {
     sections: number
