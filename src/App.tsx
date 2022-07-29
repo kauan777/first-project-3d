@@ -1,12 +1,21 @@
-import { Html } from "drei";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "react-three-fiber";
+import { Event } from "three";
 import { Header } from "./components/Header";
 import HtmlContent from "./components/HtmlContent";
 import Lights from "./components/Lights";
+import state from "./utils/state";
+
 function App() {
-  
-    //25:37
+
+  const domContent: any = useRef(); 
+  const scrollArea: any = useRef();
+
+  const onScroll: any = (e: Event) => (state.top.current =  e.target.scrollTop) 
+
+  useEffect(() => {
+    void onScroll({target: scrollArea.current})
+  }, [])
 
   return (
     <>
@@ -14,15 +23,49 @@ function App() {
       <Canvas colorManagement camera={{ position: [0, 0, 120], fov: 70 }}>
         <Lights />
         <Suspense fallback={null}>
-          <HtmlContent modelPath={"armchairYellow.gltf"} position={[0, 250, 0]}>
-            <Html fullscreen>
-              <div className="container">
-                <h1 className="title">Hello</h1>
-              </div>
-            </Html>
+          
+          <HtmlContent
+            modelPath={"armchairYellow.gltf"}
+            bgColor="#E4D546"
+            positionY={250}
+            domContent={domContent}
+          >
+            <div className="container">
+              <h1 className="title">Yellow</h1>
+            </div>
           </HtmlContent>
+
+          <HtmlContent 
+            modelPath={"armchairBlue.gltf"} 
+            bgColor="#4656E4"
+            positionY={0}
+            domContent={domContent}
+            >
+            <div className="container">
+              <h1 className="title">Blue</h1>
+            </div>
+          </HtmlContent>
+
+          <HtmlContent 
+            modelPath={"armchairPink.gltf"} 
+            bgColor="#D75EBC"
+            positionY={-250}
+            domContent={domContent}
+            >
+            <div className="container">
+              <h1 className="title">Pink</h1>
+            </div>
+          </HtmlContent>
+        
+        
         </Suspense>
       </Canvas>
+      <div className="scrollArea" style={{
+        overflowX: 'hidden'
+      }} ref={scrollArea} onScroll={onScroll}>
+        <div style={{ position: "sticky", top: 0 }} ref={domContent}></div>
+        <div style={{ height: `${state.sections * 100}vh` }}></div>
+      </div>
     </>
   );
 }

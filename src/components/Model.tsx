@@ -2,9 +2,9 @@ import { useGLTFLoader } from "drei"
 
 
 
-function Model({path}: {path: string}) {
+function Model({modelPath}: {modelPath: string}) {
 
-    const gltf = useGLTFLoader(path, true);
+    const gltf = useGLTFLoader(modelPath, true);
 
   return (
     <primitive object={gltf.scene} dispose={null}/>

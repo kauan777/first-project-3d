@@ -4,7 +4,7 @@ interface stateProps {
     sections: number
     pages: number
     zoom: number
-    top: RefObject<any>
+    top: any
 }
 
 const state: stateProps = {
