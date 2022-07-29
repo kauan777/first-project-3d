@@ -31,7 +31,7 @@ function App() {
             domContent={domContent}
           >
             <div className="container">
-              <h1 className="title">Yellow</h1>
+              <h1 className="title">Yellow armchair</h1>
             </div>
           </HtmlContent>
 
@@ -42,7 +42,7 @@ function App() {
             domContent={domContent}
             >
             <div className="container">
-              <h1 className="title">Blue</h1>
+              <h1 className="title">Blue armchair</h1>
             </div>
           </HtmlContent>
 
@@ -53,7 +53,7 @@ function App() {
             domContent={domContent}
             >
             <div className="container">
-              <h1 className="title">Pink</h1>
+              <h1 className="title">Pink armchair</h1>
             </div>
           </HtmlContent>
         
