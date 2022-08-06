@@ -2,15 +2,17 @@
 
 <br>
 
-Clone site tesla.com
+Meu primeiro projeto com modelagem 3d
 
 </h1>
 
 ## Technologies 🔧
 
 - React
+- React-three-fiber
 - TypeScript
 - Scss
+
 
 <br>
 
